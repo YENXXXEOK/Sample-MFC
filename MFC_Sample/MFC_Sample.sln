@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Login", "Login\Login.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Keyboard", "Keyboard\Keyboard.vcxproj", "{D13C53B4-0C9A-47F7-BF10-A46E91107EB9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AddrBook", "AddrBook\AddrBook.vcxproj", "{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{D13C53B4-0C9A-47F7-BF10-A46E91107EB9}.Release|x64.Build.0 = Release|x64
 		{D13C53B4-0C9A-47F7-BF10-A46E91107EB9}.Release|x86.ActiveCfg = Release|Win32
 		{D13C53B4-0C9A-47F7-BF10-A46E91107EB9}.Release|x86.Build.0 = Release|Win32
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Debug|x64.ActiveCfg = Debug|x64
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Debug|x64.Build.0 = Debug|x64
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Debug|x86.ActiveCfg = Debug|Win32
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Debug|x86.Build.0 = Debug|Win32
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Release|x64.ActiveCfg = Release|x64
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Release|x64.Build.0 = Release|x64
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Release|x86.ActiveCfg = Release|Win32
+		{2C8ADF63-455B-42BD-9E46-148A3E8AF21C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
