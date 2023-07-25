@@ -1,4 +1,12 @@
-﻿
+﻿	POSITION pos = m_ptrList.GetHeadPosition();
+	while (pos != NULL)
+	{
+		CUserData* pNode = (CUserData*)m_ptrList.GetNext(pos);
+
+		//OutputDebugString(pNode->GetName() + _T("------------\n"));
+		delete pNode;
+	}
+
 // AddrBookDoc.cpp: CAddrBookDoc 클래스의 구현
 //
 
@@ -144,4 +152,30 @@ int CAddrBookDoc::AddAddr(CString name, CString phone)
 
 	m_ptrList.AddTail(pAdd);
 	return 0;
+}
+
+
+void CAddrBookDoc::ReleaseList()
+{
+	POSITION pos = m_ptrList.GetHeadPosition();
+	while (pos != NULL)
+	{
+		CUserData* pNode = (CUserData*)m_ptrList.GetNext(pos);
+
+		//OutputDebugString(pNode->GetName() + _T("------------\n"));
+		delete pNode;
+	}
+}
+
+
+CUserData CAddrBookDoc::FindUser(CString name)
+{
+	POSITION pos = m_ptrList.GetHeadPosition();
+	while (pos != NULL)
+	{
+		CUserData* pNode = (CUserData*)m_ptrList.GetNext(pos);
+		if (pNode->GetName() == name)
+			return *pNode;
+	}
+	return CUserData(_T(""), _T(""));
 }

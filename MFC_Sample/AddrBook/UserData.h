@@ -14,6 +14,11 @@ public:
         m_strPhone = phone;
     }
 
+    CUserData(const CUserData& rhs) {
+        this->m_strName = rhs.m_strName;
+        this->m_strPhone = rhs.m_strPhone;
+    }
+
     CString GetName() { return m_strName; }
     CString GetPhone() { return m_strPhone; }
 };

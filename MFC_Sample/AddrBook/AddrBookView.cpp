@@ -30,6 +30,7 @@ BEGIN_MESSAGE_MAP(CAddrBookView, CView)
 	ON_WM_CREATE()
 	ON_WM_SIZE()
 	ON_COMMAND(ID_Add_Addr, &CAddrBookView::OnAddAddr)
+	ON_COMMAND(ID_Search_Addr, &CAddrBookView::OnSearchAddr)
 END_MESSAGE_MAP()
 
 // CAddrBookView 생성/소멸
@@ -42,6 +43,7 @@ CAddrBookView::CAddrBookView() noexcept
 
 CAddrBookView::~CAddrBookView()
 {
+	GetDocument()->ReleaseList();
 }
 
 BOOL CAddrBookView::PreCreateWindow(CREATESTRUCT& cs)
@@ -138,7 +140,22 @@ void CAddrBookView::OnAddAddr()
 
 	if (dlg.DoModal() == IDOK)
 	{
-		//m_wndList.AddString(dlg.m_strName + " [" + dlg.m_strPhone + "]");
+		m_wndList.AddString(dlg.m_strName + " [" + dlg.m_strPhone + "]");
 		GetDocument()->AddAddr(dlg.m_strName, dlg.m_strPhone);
+	}
+}
+
+
+void CAddrBookView::OnSearchAddr()
+{
+	CDlg_AddAddr dlg;
+
+	if (dlg.DoModal() == IDOK)
+	{
+		CUserData user = GetDocument()->FindUser(dlg.m_strName);
+		if (user.GetName().IsEmpty() == TRUE)
+			AfxMessageBox(_T("Not found"));
+		else
+			AfxMessageBox(user.GetName() + " " + user.GetPhone());
 	}
 }

@@ -47,4 +47,6 @@ protected:
 #endif // SHARED_HANDLERS
 public:
 	int AddAddr(CString name, CString phone);
+	void ReleaseList();
+	CUserData FindUser(CString name);
 };
