@@ -26,12 +26,16 @@ void CTestDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_edSample, m_edtSample);
+	DDX_Control(pDX, IDC_edSample2, m_edtSample2);
+	DDX_Control(pDX, IDC_edSample3, m_edtSample3);
 }
 
 
 BEGIN_MESSAGE_MAP(CTestDlg, CDialogEx)
 	ON_EN_SETFOCUS(IDC_edSample, &CTestDlg::OnEnSetfocusedsample)
 	ON_BN_CLICKED(IDC_btTest_Close, &CTestDlg::OnBnClickedbttestClose)
+	ON_EN_SETFOCUS(IDC_edSample2, &CTestDlg::OnEnSetfocusedsample2)
+	ON_EN_SETFOCUS(IDC_edSample3, &CTestDlg::OnEnSetfocusedsample3)
 END_MESSAGE_MAP()
 
 
@@ -42,9 +46,27 @@ void CTestDlg::OnEnSetfocusedsample()
 {
 	CKeyboardDlg* pDlg = (CKeyboardDlg*)m_pParent;
 	pDlg->CnJiInDlgCreate();
+
+	m_edtFocus = (CEdit*)GetDlgItem(IDC_edSample);
 }
 
 
+void CTestDlg::OnEnSetfocusedsample2()
+{
+	CKeyboardDlg* pDlg = (CKeyboardDlg*)m_pParent;
+	pDlg->CnJiInDlgCreate();
+
+	m_edtFocus = (CEdit*)GetDlgItem(IDC_edSample2);
+}
+
+
+void CTestDlg::OnEnSetfocusedsample3()
+{
+	CKeyboardDlg* pDlg = (CKeyboardDlg*)m_pParent;
+	pDlg->CnJiInDlgCreate();
+	
+	m_edtFocus = (CEdit*)GetDlgItem(IDC_edSample3);
+}
 
 void CTestDlg::OnBnClickedbttestClose()
 {

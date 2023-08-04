@@ -109,3 +109,5 @@ void CKeyboardDlg::SystemDestroy()
 {
 	::SendMessage(m_hWnd, WM_CLOSE, NULL, NULL);
 }
+
+

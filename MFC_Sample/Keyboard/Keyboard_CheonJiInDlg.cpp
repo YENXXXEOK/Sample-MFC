@@ -46,7 +46,7 @@ void CKeyboard_CheonJiInDlg::OnButtonClick(UINT nID)
     {        
         // Edit 컨트롤에 입력되어 있는 문자
         CString strEdit = _T("");
-        pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+        pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
 
         // 버튼 캡션
         CString strButtonName;
@@ -100,13 +100,13 @@ void CKeyboard_CheonJiInDlg::ToEditSendConverText(int nDeleteCnt, CString strAdd
     CKeyboardDlg* pDlg = (CKeyboardDlg*)m_pParent;
 
     CString strEdit = _T("");
-    pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+    pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
     strEdit.Delete(strEdit.GetLength() - nDeleteCnt, nDeleteCnt);
     strEdit = strEdit + strAdd;
 
-    ::SendMessage(pDlg->GetTestDlg()->m_edtSample, WM_SETTEXT, 0, (LPARAM)strEdit.GetBuffer());
-    pDlg->GetTestDlg()->m_edtSample.SetSel(strEdit.GetLength(), strEdit.GetLength() - 1);
-    pDlg->GetTestDlg()->m_edtSample.SetFocus();
+    ::SendMessage(pDlg->GetTestDlg()->m_edtFocus->GetSafeHwnd(), WM_SETTEXT, 0, (LPARAM)strEdit.GetBuffer());
+    pDlg->GetTestDlg()->m_edtFocus->SetSel(strEdit.GetLength(), strEdit.GetLength() - 1);
+    pDlg->GetTestDlg()->m_edtFocus->SetFocus();
 }
 
 bool CKeyboard_CheonJiInDlg::ConvertHangulProcess(ConvertHangul callback, CString* strConvert, CString str1, CString str2, CString str3)
@@ -131,7 +131,7 @@ void	CKeyboard_CheonJiInDlg::PushEnglish(UINT nID)
 
     // Edit 컨트롤에 입력되어 있는 문자
     CString strEdit = _T("");
-    pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+    pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
 
     // 버튼 캡션
     CString strButtonName;
@@ -143,7 +143,7 @@ void	CKeyboard_CheonJiInDlg::PushEnglish(UINT nID)
     //일단 글자 추가
     ToEditSendConverText(0, strInputting);
 
-    pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+    pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
     if (strEdit.GetLength() - 2 >= 0 && m_bNotSpace == true)
     {
         CString strOld = strEdit.Mid(strEdit.GetLength() - 2, 1);
@@ -188,7 +188,7 @@ void	CKeyboard_CheonJiInDlg::PushHangul(UINT nID)
 
     // Edit 컨트롤에 입력되어 있는 문자
     CString strEdit = _T("");
-    pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+    pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
 
     // 버튼 캡션
     CString strButtonName;
@@ -205,7 +205,7 @@ void	CKeyboard_CheonJiInDlg::PushHangul(UINT nID)
     while (bLoop)
     {
         bLoop = false;
-        pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+        pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
         if (strEdit.GetLength() - 2 < 0)
         {
             break;
@@ -482,7 +482,7 @@ void	CKeyboard_CheonJiInDlg::PushBackSpace()
 
     // Edit 컨트롤에 입력되어 있는 문자
     CString strEdit = _T("");
-    pDlg->GetTestDlg()->m_edtSample.GetWindowTextW(strEdit);
+    pDlg->GetTestDlg()->m_edtFocus->GetWindowTextW(strEdit);
 
     // 마지막 문자 가져오기
     CString strOld = strEdit.Right(1);

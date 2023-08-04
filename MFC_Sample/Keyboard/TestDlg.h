@@ -22,7 +22,13 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 public:
+	CEdit* m_edtFocus;
 	CEdit m_edtSample;
 	afx_msg void OnEnSetfocusedsample();
 	afx_msg void OnBnClickedbttestClose();
+	CEdit m_edtSample2;
+	CEdit m_edtSample3;
+
+	afx_msg void OnEnSetfocusedsample2();
+	afx_msg void OnEnSetfocusedsample3();
 };
